@@ -118,6 +118,7 @@ public class TODOManager {
                 viewTasks("Specific task");
                 System.out.println("\nEnter a number to view a task: ");
                 int view = input.nextInt();
+                dashedLines();
                 view_task(view);
             }
         }
@@ -164,15 +165,19 @@ public class TODOManager {
             viewTasks("None");
         }
         else if (changeTask == 2) {
-            System.out.print("Which task would you like to delete? ");
+            dashedLines();
+            System.out.println("Which task would you like to delete? ");
             for (int i = 0; i < taskList.size(); i++) {
                 System.out.println(i + ". " + taskList.get(i).name);
             }
             int taskNum = input.nextInt();
             taskList.remove(taskNum);
+            viewTasks("None");
         }
         else if (changeTask == 3) {
             currentTask.category = "Complete";
+            summary(currentTask);
+            viewTasks("None");
         }
     }
 
@@ -295,7 +300,8 @@ public class TODOManager {
     public static Task modify(int function, Task curr) {
         if (function == 1) {
             System.out.print("\nEnter new name here: ");
-            curr.name = input.next();
+            input.nextLine();
+            curr.name = input.nextLine();
         }
         else if (function == 2) {
             System.out.print("\nEnter new date here: ");
@@ -323,7 +329,7 @@ public class TODOManager {
     }
 
     //Sorts the tasks using alphabetical order
-    public static void alphabetically(){
+    public static void alphabetically() {
         for (int i = 0; i < taskList.size() ; i++) {
             for (int j = i + 1; j < taskList.size(); j++) {
                 String name1 = taskList.get(i).name;
