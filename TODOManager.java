@@ -405,7 +405,7 @@ public class TODOManager {
                     tempList.add(taskList.get(i));
                 }
             }
-        for (int i = 0; i < categories.size(); i++) {
+        for (int i = 0; i < taskList.size(); i++) {
             if (taskList.get(i).status.equals("Complete")) {
                     tempList.add(taskList.get(i));
                 }
