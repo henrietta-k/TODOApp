@@ -419,13 +419,18 @@ public class TODOManager {
         for (int i = 0; i < input.size(); i++) {
             for (int j = i + 1; j < input.size(); j++) {
                 String curr1 = input.get(i).dueTime;
-                if (curr1.substring(0,2).compareTo(curr1.substring(0, 2)) > 0) {
+                String curr2 = input.get(j).dueTime;
+                int int1 = Integer.valueOf(curr1.substring(0,2));
+                int int2 = Integer.valueOf(curr2.substring(0, 2));
+                if (int1 - 12 > int2 - 12) {
                     Task temp = input.get(i);
                     input.set(i, input.get(j));
                     input.set(j, temp);
                 }
-                else if (curr1.substring(0,2).compareTo(curr1.substring(0, 2)) == 0) {
-                    if (curr1.substring(3,5).compareTo(curr1.substring(3, 5)) > 0) {
+                else if (int1 == int2) {
+                    int int3 = Integer.valueOf(curr1.substring(3, 5));
+                    int int4 = Integer.valueOf(curr2.substring(3, 5));
+                    if (int3 > int4) {
                         Task temp = input.get(i);
                         input.set(i, input.get(j));
                         input.set(j, temp);
